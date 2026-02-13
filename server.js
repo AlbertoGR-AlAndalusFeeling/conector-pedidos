@@ -1,3 +1,4 @@
+require('dotenv').config(); 
 const express = require('express');
 const sql = require('mssql');
 
@@ -5,10 +6,10 @@ const app = express();
 
 // Configuración de SQL Server
 const config = {
-    user: 'conector',
-    password: 'Sage+2025+',
-    server: 'localhost',
-    database: 'DEMOS',
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    server: process.env.DB_SERVER,
+    database: process.env.DB_NAME,
     options: {
         encrypt: false,
         trustServerCertificate: true
